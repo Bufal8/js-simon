@@ -12,9 +12,12 @@
 
 let stringaSimone = creaXNumeriRandomInRange(1,5);
 
+let numeriDaRicordare = document.getElementById("main-string")
 
+numeriDaRicordare.innerHTML += `Simone dice: ${stringaSimone}`;
 
-console.log(stringaSimone); 
+setTimeout (sparizioneStringa, 30000);
+setTimeout (rispostaUtente, 32000)
 // Genera 5 numeri casuali
 
 // visualizzali per 30 secondi
@@ -48,7 +51,31 @@ function creaXNumeriRandomInRange(min, max){
 
 
 // Funzione che appende la classe che permetta la sparizione delle stringhe
-function sparizioneStringa(){
-    let numeriCasuali = document.getElementById("main-string");
-    numeriCasuali.classList.add("nodisplay")
+let simoneArray = []
+function sparizioneStringa (){
+    numeriDaRicordare.innerHTML =  "";
+}
+
+function rispostaUtente () {
+    for (i=0; i<stringaSimone.length;i++) {
+        let indovinaNumero = parseInt(prompt ("Inserisci un numero")) 
+        simoneArray.push(indovinaNumero)
+        
+        console.log(simoneArray);
+        
+    }
+
+    if (stringaSimone.toString() === simoneArray.toString()) {
+        
+        numeriDaRicordare.innerHTML = `ESATTO! CHE MEMORIA INCREDIBILE`;
+        
+    }
+    
+    else {
+        
+        numeriDaRicordare.innerHTML = `PECCATO! HAI PERSO.`;
+        
+    }
+    
+       
 }
